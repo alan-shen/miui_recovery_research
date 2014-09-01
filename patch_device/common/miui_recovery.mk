@@ -57,7 +57,18 @@ ifneq ($(MIUI_DEVICE_CONFIG),)
 endif
 	@echo make recovery image $(miui_recovery_target)
 	$(MKBOOTFS) $(miui_recovery_root) | $(MINIGZIP) > $(miui_recovery_ramdisk)
+ifeq (${MIUI_PRODUCT}, s1)
+	patch_device/s1/mkbootimg_mtk $(miui_recoveryimage_args) --output $(miui_recovery_target)
+else
 	$(MKBOOTIMG) $(miui_recoveryimage_args) --output $(miui_recovery_target)
+ifeq (${MIUI_PRODUCT}, i9300)
+	@echo -e "\n===== Make Tar Package For ${MIUI_PRODUCT} ====="
+	@cp -rfv ${miui_recovery_target} recovery.img
+	@tar cvf i9300_miui_recovery.tar recovery.img
+	@rm -rfv                         recovery.img
+	@echo -e "\n"
+endif
+endif
 	$(hide) $(call assert-max-image-size, $(miui_recovery_target), $(BOARD_RECOVERYIMAGE_PARTITION_SIZE), raw)
 
 MIUI_PRODUCT_RELEASE := $(MIUI_PRODUCT)_release

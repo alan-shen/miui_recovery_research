@@ -1,0 +1,12 @@
+LOCAL_PATH := $(call my-dir)
+include $(MIUI_CLEAR)
+MIUI_PRODUCT := s1
+MIUI_KERNEL := $(LOCAL_PATH)/kernel
+
+MIUI_KERNEL_BASE := 0x40000000 --ramdisk_offset 0x04000000 --kernel_offset 0x00008000 --tags_offset 0x0E000000 --board 1409296486
+MIUI_KERNEL_PAGESIZE := 
+MIUI_KERNEL_CMDLINE := 
+
+MIUI_PRODUCT_ROOT := $(LOCAL_PATH)/root
+MIUI_DEVICE_CONFIG := $(LOCAL_PATH)/device.conf
+include $(MIUI_RECOVERY)
