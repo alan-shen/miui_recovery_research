@@ -42,7 +42,7 @@ $(MIUI_PRODUCT): MIUI_DEVICE_CONFIG := $(MIUI_DEVICE_CONFIG)
 $(MIUI_PRODUCT): $(MKBOOTFS) $(MINIGZIP) \
 		$(MKBOOTIMG) \
 		recoveryimage
-	@echo make $(MIUI_PRODUCT) 
+	@echo -e ${CL_YLW}"\nBuild for $(MIUI_PRODUCT)"${CL_RST}
 	rm -rf $(miui_recovery_product)
 	mkdir -p $(miui_recovery_out)
 	mkdir -p $(miui_recovery_product)
@@ -55,18 +55,21 @@ $(MIUI_PRODUCT): $(MKBOOTFS) $(MINIGZIP) \
 ifneq ($(MIUI_DEVICE_CONFIG),)
 	-cp -f $(MIUI_DEVICE_CONFIG) $(miui_recovery_root)/res/
 endif
-	@echo make recovery image $(miui_recovery_target)
+	@echo -e ${CL_CYN}"\nInstall: "${CL_RST}"recovery image $(miui_recovery_target)"
 	$(MKBOOTFS) $(miui_recovery_root) | $(MINIGZIP) > $(miui_recovery_ramdisk)
 ifeq (${MIUI_PRODUCT}, s1)
 	patch_device/s1/mkbootimg_mtk $(miui_recoveryimage_args) --output $(miui_recovery_target)
 else
 	$(MKBOOTIMG) $(miui_recoveryimage_args) --output $(miui_recovery_target)
 ifeq (${MIUI_PRODUCT}, i9300)
-	@echo -e "\n===== Make Tar Package For ${MIUI_PRODUCT} ====="
+	@echo -e \
+		${CL_RED}"\n=============== Make .tar package for ["${CL_RST} \
+		${CL_BLU}"${MIUI_PRODUCT}"${CL_RST} \
+		${CL_RED}"] ==============="${CL_RST}
 	@cp -rfv ${miui_recovery_target} recovery.img
 	@tar cvf i9300_miui_recovery.tar recovery.img
 	@rm -rfv                         recovery.img
-	@echo -e "\n"
+	@echo -e ${CL_RED}"==============================================================="${CL_RST}
 endif
 endif
 	$(hide) $(call assert-max-image-size, $(miui_recovery_target), $(BOARD_RECOVERYIMAGE_PARTITION_SIZE), raw)
