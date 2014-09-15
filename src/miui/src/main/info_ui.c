@@ -56,6 +56,32 @@ STATUS info_about_show(struct _menuUnit* p)
     return MENU_BACK;
 }
 
+STATUS info_letv_show(struct _menuUnit* p)
+{
+#if 0
+    char message[512];
+    snprintf(message, 512,
+    "<~about.name>\n   <b><#selectbg_g>%s</#></b>\n"
+    ,
+	"shenpengru"
+    );
+
+    miui_aboutmenu(
+    MIUI_NAME " " MIUI_VERSION,
+    "@install",
+    message
+            );
+
+    return MENU_BACK;
+#else
+    //confirm
+    if (RET_YES == miui_confirm(3, p->name, p->desc, p->icon)) {
+		; 
+    }   
+    return MENU_BACK;
+#endif
+}
+
 struct _menuUnit* info_ui_init()
 {
     struct _menuUnit *p = common_ui_init();
@@ -82,6 +108,13 @@ struct _menuUnit* info_ui_init()
     menuUnit_set_name(temp, "<~info.about.name>"); 
     menuUnit_set_icon(temp, "@info.about");
     menuUnit_set_show(temp, &info_about_show);
+    assert_if_fail(menuNode_add(p, temp) == RET_OK);
+
+    //about
+    temp = common_ui_init();
+    menuUnit_set_name(temp, "<~info.letv.name>"); 
+    menuUnit_set_icon(temp, "@default");
+    menuUnit_set_show(temp, &info_letv_show);
     assert_if_fail(menuNode_add(p, temp) == RET_OK);
     return p;
 }

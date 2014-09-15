@@ -107,6 +107,7 @@ info.title=information of miui recovery
 info.mount.name=storage info
 info.log.name=log
 info.about.name=about miui recovery
+info.letv.name=LETV Phone
 
 about.device=Device:
 about.name=Name:

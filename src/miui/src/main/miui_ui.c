@@ -214,17 +214,20 @@ static int _miui_setbg_title(CANVAS *win, CANVAS *bg) {
   miui_debug("bg_title is %s\n", bg_title);
   int titW  = ag_txtwidth(bg_title,0);
   ag_draw(win, bg,0,0);
+#if 0
   //draw title name
   ag_textf(win,titW,elmP + 1,elmP+1,bg_title,acfg()->titlebg_g,0);
   ag_text(win,titW,elmP,elmP,bg_title,acfg()->titlefg,0);
   //draw battery
   _miui_draw_battery(win, agw()/2 + 8*elmP, elmP, acfg()->titlefg, acfg()->titlebg_g);
   //draw time
-  snprintf(bg_title, 64, "%4d-%02d-%02d %02d:%02d", 1900+p->tm_year, p->tm_mon+1, p->tm_mday, (p->tm_hour + 8) % 24, p->tm_min);
+  //snprintf(bg_title, 64, "%4d-%02d-%02d %02d:%02d", 1900+p->tm_year, p->tm_mon+1, p->tm_mday, (p->tm_hour + 8) % 24, p->tm_min);
+  snprintf(bg_title, 64, "%02d-%02d %02d:%02d", p->tm_mon+1, p->tm_mday, (p->tm_hour + 8) % 24, p->tm_min);
   titW = ag_txtwidth(bg_title, 0);
   int timeX = agw() - titW - elmP;
   ag_textf(win,titW,timeX + 1,elmP+1,bg_title,acfg()->titlebg_g,0);
   ag_text(win,titW,timeX,elmP,bg_title,acfg()->titlefg,0);
+#endif
   pthread_mutex_unlock(&title_mutex);
   return 2*elmP + ag_fontheight(0);
 }
@@ -1435,7 +1438,8 @@ STATUS miui_mainmenu(char *title_name, char **item, char **item_icon, char **ite
   //-- Drawing Data
   int pad         = agdp() * 4;
   int chkH        = agh();
-  int chkW          = agw();
+  int chkW          = agw()/2;
+  int chkX          = agw()/4;
   
   //-- Draw Navigation Bar
   int chkY= miui_setbg_title();
@@ -1447,10 +1451,11 @@ STATUS miui_mainmenu(char *title_name, char **item, char **item_icon, char **ite
   AWINDOWP hWin   = aw(&miui_win_bg);
   
   //-- Check Box
-  ACONTROLP backmenu = actitle(hWin, 0, chkY, chkW, &chkH, title_name, 1, 5);
+  chkY = chkY*10;
+  ACONTROLP backmenu = actitle(hWin, chkX, chkY, chkW, &chkH, title_name, 1, 5);
   chkY = chkY + chkH;
   chkH = agh() - chkY;
-  ACONTROLP menu1  = acmenu(hWin,0,chkY,chkW,chkH,6);
+  ACONTROLP menu1  = acmenu(hWin,chkX,chkY,chkW,chkH,6);
 
   //-- Populate Checkbox Items
   for (i=0;i<item_cnt;i++) {
