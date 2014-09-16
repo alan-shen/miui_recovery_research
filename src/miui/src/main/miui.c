@@ -64,15 +64,15 @@ static struct _menuUnit *tree_init()
     //add wipe
     assert_if_fail(menuNode_add(g_main_menu, wipe_ui_init()) == RET_OK);
     //add mount and toggle usb storage
-    assert_if_fail(menuNode_add(g_main_menu, mount_ui_init()) == RET_OK);
+    //assert_if_fail(menuNode_add(g_main_menu, mount_ui_init()) == RET_OK);
     //add backup
-    assert_if_fail(menuNode_add(g_main_menu, backup_ui_init()) == RET_OK);
+    //assert_if_fail(menuNode_add(g_main_menu, backup_ui_init()) == RET_OK);
     //add power
     assert_if_fail(menuNode_add(g_main_menu, power_ui_init()) == RET_OK);
     //add tools operation
-    assert_if_fail(menuNode_add(g_main_menu, tool_ui_init()) == RET_OK);
+    //assert_if_fail(menuNode_add(g_main_menu, tool_ui_init()) == RET_OK);
     //add info
-    assert_if_fail(menuNode_add(g_main_menu, info_ui_init()) == RET_OK);
+    //assert_if_fail(menuNode_add(g_main_menu, info_ui_init()) == RET_OK);
 
     struct stat st;
     if (stat(RECOVERY_PATH, &st) != 0)

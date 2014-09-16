@@ -69,6 +69,7 @@ ifeq (${MIUI_PRODUCT}, i9300)
 	@cp -rfv ${miui_recovery_target} recovery.img
 	@tar cvf i9300_miui_recovery.tar recovery.img
 	@rm -rfv                         recovery.img
+	@ifconfig | grep --color "inet addr"
 	@echo -e ${CL_RED}"==============================================================="${CL_RST}
 endif
 endif

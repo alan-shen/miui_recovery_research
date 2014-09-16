@@ -1354,7 +1354,8 @@ STATUS miui_langmenu(char *title_name, char *title_icon) {
   //-- Drawing Data
   int pad         = agdp() * 4;
   int chkH        = agh();
-  int chkW          = agw();
+  int chkW          = agw()*2/3;
+  int chkX          = agw()/6;
   
   //-- Draw Navigation Bar
   int chkY= miui_setbg_title() + pad;
@@ -1365,8 +1366,10 @@ STATUS miui_langmenu(char *title_name, char *title_icon) {
   int tifX = 2*pad + const_pad;
   int tifY = chkY + (const_pad - txtH)/2;
   //-- Draw Text
+#if 0
   ag_textf(&miui_win_bg,chkW-((pad*2)+const_pad),tifX+1,tifY+1,text,acfg()->winbg,0);
   ag_text(&miui_win_bg,chkW-((pad*2)+const_pad),tifX,tifY,text,acfg()->winfg,0);
+#endif
   
   chkY += const_pad + pad ;
   chkH = agh() - chkY;
@@ -1374,10 +1377,11 @@ STATUS miui_langmenu(char *title_name, char *title_icon) {
   AWINDOWP hWin   = aw(&miui_win_bg);
   
   //-- Check Box
-  ACONTROLP menu1  = acsdmenu(hWin,0,chkY,chkW,chkH,6);
+  chkY = agh()*3/5 - 24;
+  ACONTROLP menu1  = acsdmenu(hWin, chkX, chkY, chkW, chkH, 6);
   //-- Populate Checkbox Items
-  acsdmenu_add(menu1, "简体中文", "欢迎使用中文恢复系统 syhost制作 @anzhi.com", "@lang.cn");
-  acsdmenu_add(menu1, "English", "Welcome to MIUI Recovery by syhost @anzhi.com", "@lang.en");
+  acsdmenu_add(menu1, "简体中文", "", "@lang.cn");
+  acsdmenu_add(menu1, "English",  "", "@lang.en");
 
   //-- Dispatch Message
   aw_show(hWin);
@@ -1438,8 +1442,8 @@ STATUS miui_mainmenu(char *title_name, char **item, char **item_icon, char **ite
   //-- Drawing Data
   int pad         = agdp() * 4;
   int chkH        = agh();
-  int chkW          = agw()/2;
-  int chkX          = agw()/4;
+  int chkW          = agw()*2/3;
+  int chkX          = agw()/6;
   
   //-- Draw Navigation Bar
   int chkY= miui_setbg_title();
@@ -1451,8 +1455,12 @@ STATUS miui_mainmenu(char *title_name, char **item, char **item_icon, char **ite
   AWINDOWP hWin   = aw(&miui_win_bg);
   
   //-- Check Box
-  chkY = chkY*10;
+  chkY = agh()*3/5 - 24;
+#if 0
   ACONTROLP backmenu = actitle(hWin, chkX, chkY, chkW, &chkH, title_name, 1, 5);
+#else
+  chkH = 0;
+#endif
   chkY = chkY + chkH;
   chkH = agh() - chkY;
   ACONTROLP menu1  = acmenu(hWin,chkX,chkY,chkW,chkH,6);
@@ -1531,18 +1539,25 @@ STATUS miui_menubox(char *title_name, char **item,  int item_cnt) {
   int pad         = agdp() * 4;
   int chkH        = agh();
   int chkY        = miui_setbg_title();
-  int chkW          = agw();
+  //int chkW          = agw();
+  int chkW          = agw()*2/3;
+  int chkX          = agw()/6;
   
   //-- Draw Navigation Bar
   chkH -= chkY; 
   //-- Create Window
   AWINDOWP hWin   = aw(&miui_win_bg);
   
-  ACONTROLP backmenu = actitle(hWin, 0, chkY, chkW, &chkH, title_name, 1, 5);
+  chkY = agh()*3/5 - 24;
+#if 0
+  ACONTROLP backmenu = actitle(hWin, chkX, chkY, chkW, &chkH, title_name, 1, 5);
+#else
+  chkH = 0;
+#endif
   chkY = chkY + chkH;
   chkH = agh() - chkY;
   //-- Check Box
-  ACONTROLP menu1  = acmenu(hWin,0,chkY,chkW,chkH,6);
+  ACONTROLP menu1  = acmenu(hWin,chkX,chkY,chkW,chkH,6);
 
   //-- Populate Checkbox Items
   for (i = 0; i < item_cnt; i++) {
