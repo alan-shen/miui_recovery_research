@@ -561,12 +561,14 @@ ACONTROLP acsdmenu(
   //-- Draw Control
   ag_draw_ex(&d->control,&win->c,0,0,x,y,w,h);
   ag_roundgrad(&d->control,0,0,w,h,acfg()->border,acfg()->border_g,(agdp()*acfg()->roundsz));
-  ag_roundgrad(&d->control,1,1,w-2,h-2,acfg()->textbg,acfg()->textbg,(agdp()*acfg()->roundsz)-1);
+  //ag_roundgrad(&d->control,1,1,w-2,h-2,acfg()->textbg,acfg()->textbg,(agdp()*acfg()->roundsz)-1);
+  ag_roundgrad(&d->control,0,0,w,h,acfg()->textbg,acfg()->textbg,(agdp()*acfg()->roundsz));
   
   //-- Draw Focused Control
   ag_draw_ex(&d->control_focused,&win->c,0,0,x,y,w,h);
   ag_roundgrad(&d->control_focused,0,0,w,h,acfg()->selectbg,acfg()->selectbg_g,(agdp()*acfg()->roundsz));
-  ag_roundgrad(&d->control_focused,agdp(),agdp(),w-(agdp()*2),h-(agdp()*2),acfg()->textbg,acfg()->textbg,(agdp()*(acfg()->roundsz-1)));
+  //ag_roundgrad(&d->control_focused,agdp(),agdp(),w-(agdp()*2),h-(agdp()*2),acfg()->textbg,acfg()->textbg,(agdp()*(acfg()->roundsz-1)));
+  ag_roundgrad(&d->control_focused,0,0,w,h,acfg()->textbg,acfg()->textbg,(agdp()*(acfg()->roundsz)));
   
   //-- Set Scroll Value
   d->scrollY     = 0;

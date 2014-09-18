@@ -71,6 +71,15 @@ static STATUS sd_update_show(menuUnit *p)
     }
     return MENU_BACK;
 }
+static STATUS udisk_update_show(menuUnit *p)
+{
+    char new_path[SD_MAX_PATH] = "/udisk/update.zip";
+    int wipe_cache = 0;
+    if (RET_YES == miui_confirm(3, p->name, p->desc, p->icon)) {
+        miuiIntent_send(INTENT_INSTALL, 3, new_path, "0", "1");
+    }
+    return MENU_BACK;
+}
 struct _menuUnit * sd_ui_init()
 {
     struct _menuUnit *p = common_ui_init();
@@ -80,18 +89,26 @@ struct _menuUnit * sd_ui_init()
     strncpy(p->icon, "@sd",  MENU_LEN);
     p->result = 0;
     return_null_if_fail(menuNode_init(p) != NULL);
-    //install from sd
     struct _menuUnit  *temp = common_ui_init();
     return_null_if_fail(temp != NULL);
+#if 0
+    //install from sd
     menuUnit_set_icon(temp, "@sd.choose");
     strncpy(temp->name, "<~sd.install.name>", MENU_LEN);
     temp->show = &sd_menu_show;
     assert_if_fail(menuNode_add(p, temp) == RET_OK);
+#endif
     //install update.bin from sd
     temp = common_ui_init();
     menuUnit_set_icon(temp, "@sd.install");
     strncpy(temp->name,"<~sd.update.name>", MENU_LEN);
     temp->show = &sd_update_show;
+    assert_if_fail(menuNode_add(p, temp) == RET_OK);
+    //install update.bin from udisk
+    temp = common_ui_init();
+    menuUnit_set_icon(temp, "@sd.install");
+    strncpy(temp->name,"<~udisk.update.name>", MENU_LEN);
+    temp->show = &udisk_update_show;
     assert_if_fail(menuNode_add(p, temp) == RET_OK);
     if (acfg()->sd_ext == 1)
     {

@@ -1354,8 +1354,10 @@ STATUS miui_langmenu(char *title_name, char *title_icon) {
   //-- Drawing Data
   int pad         = agdp() * 4;
   int chkH        = agh();
-  int chkW          = agw()*2/3;
-  int chkX          = agw()/6;
+  //int chkW          = agw()*2/3;
+  //int chkX          = agw()/6;
+  int chkW          = agw();
+  int chkX          = 0;
   
   //-- Draw Navigation Bar
   int chkY= miui_setbg_title() + pad;
@@ -1442,8 +1444,10 @@ STATUS miui_mainmenu(char *title_name, char **item, char **item_icon, char **ite
   //-- Drawing Data
   int pad         = agdp() * 4;
   int chkH        = agh();
-  int chkW          = agw()*2/3;
-  int chkX          = agw()/6;
+  //int chkW          = agw()*2/3;
+  //int chkX          = agw()/6;
+  int chkW          = agw();
+  int chkX          = 0;
   
   //-- Draw Navigation Bar
   int chkY= miui_setbg_title();
@@ -1539,9 +1543,10 @@ STATUS miui_menubox(char *title_name, char **item,  int item_cnt) {
   int pad         = agdp() * 4;
   int chkH        = agh();
   int chkY        = miui_setbg_title();
-  //int chkW          = agw();
-  int chkW          = agw()*2/3;
-  int chkX          = agw()/6;
+  //int chkW          = agw()*2/3;
+  //int chkX          = agw()/6;
+  int chkW          = agw();
+  int chkX          = 0;
   
   //-- Draw Navigation Bar
   chkH -= chkY; 

@@ -41,6 +41,7 @@ time.name=TIME
 sd.install.name=choose zip from sd
 sdext.install.name=choose zip from external sd
 sd.update.name=apply /sdcard/update.zip
+udisk.update.name=apply /udisk/update.zip
 sd.log.save=Save Logs
 
 power.name=power
