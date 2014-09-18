@@ -18,15 +18,22 @@ static STATUS lang_menu_show(menuUnit *p)
     {
         miui_loadlang("langs/cn.lang");
         miui_font( "0", "ttf/DroidSansFallback.ttf;ttf/DroidSans.ttf", "12" );
-        miui_font( "1", "ttf/DroidSansFallback.ttf;ttf/DroidSans.ttf", "18" );
+        miui_font( "1", "ttf/DroidSansFallback.ttf;ttf/DroidSans.ttf", "15" );
         p->result = 1;
     }
     else if (1 == ret)
     {
+        miui_loadlang("langs/cntr.lang");
+        miui_font( "0", "ttf/TraditionalChinese.ttf;ttf/DroidSans.ttf", "12" );
+        miui_font( "1", "ttf/TraditionalChinese.ttf;ttf/DroidSans.ttf", "15" );
+        p->result = 1;
+    }
+    else if (2 == ret)
+    {
         miui_loadlang("langs/en.lang");
         miui_font( "0", "ttf/DroidSans.ttf", "12" );
         miui_font( "1", "ttf/DroidSans.ttf", "18" );
-        p->result = 1;
+        p->result = 2;
     }
     else {
         miui_error("should not be here");
