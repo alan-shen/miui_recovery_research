@@ -53,6 +53,10 @@ reboot.null.title=现在重启
 reboot.recovery=重启到recovery
 reboot.bootloader=重启到bootloader
 reboot.poweroff=关机
+powerreset.name=重启手机
+poweroff.name=关机
+powerdownload.name=<download>
+powerrecovery.name=<recovery>
 
 alert.result=错误
 alert.desc=错误的操作
@@ -70,14 +74,14 @@ wipe.name=清除数据
 wipe.title=擦除数据操作和格式化分区操作
 wipe.cache.name=擦除cache
 wipe.dalvik-cache.name=擦除dalvik-cache
-wipe.factory.name=擦除cache/恢复出厂设置
+wipe.factory.name=清除用户数据
 wipe.data.name=擦除data
 format.system.name=格式化system分区
 format.data.name=格式化data分区
 format.cache.name=格式化cache分区
 format.boot.name=格式化boot分区
 format.sdcard.name=格式化sdcard
-format.all.name=全部格式化（不包括boot和sdcard）
+format.all.name=清除所有数据
 
 backup.name=备份与恢复
 backup.title=备份到SD卡或者从SD卡恢复

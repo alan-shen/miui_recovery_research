@@ -51,6 +51,10 @@ reboot.null.title= reboot now
 reboot.recovery= reboot to recovery
 reboot.bootloader= reboot to bootloader
 reboot.poweroff= poweroff
+powerreset.name=Reset
+poweroff.name=PowerOff
+powerdownload.name=<download>
+powerrecovery.name=<recovery>
 
 alert.result=FAIL!
 alert.desc=operation failed
@@ -68,14 +72,14 @@ wipe.name=Wipe Data
 wipe.title=wipe data or format partation operation
 wipe.cache.name=wipe cache
 wipe.dalvik-cache.name=wipe dalvik-cache
-wipe.factory.name=wipe cache/factory reset
+wipe.factory.name=wipe user data
 wipe.data.name=wipe data
 format.system.name=format system
 format.data.name=format data
 format.cache.name=format cache
 format.boot.name=format boot
 format.sdcard.name=format sdcard
-format.all.name=format all(except sdcard and boot)
+format.all.name=wipe all data
 
 backup.name=backup and restore
 backup.title=backup to sdcard and restore from sdcard

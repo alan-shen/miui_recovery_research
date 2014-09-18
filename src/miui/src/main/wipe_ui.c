@@ -97,54 +97,6 @@ struct _menuUnit* wipe_ui_init()
     return_null_if_fail(menuUnit_set_name(temp, "<~wipe.factory.name>") == RET_OK);
     return_null_if_fail(menuUnit_set_result(temp, WIPE_FACTORY) == RET_OK);
     return_null_if_fail(RET_OK == menuUnit_set_show(temp, &wipe_item_show));
-    //wipe_data
-    temp = common_ui_init();
-    assert_if_fail(menuNode_add(p, temp) == RET_OK);
-    return_null_if_fail(menuUnit_set_name(temp, "<~wipe.data.name>") == RET_OK);
-    return_null_if_fail(menuUnit_set_result(temp, WIPE_DATA) == RET_OK);
-    return_null_if_fail(RET_OK == menuUnit_set_show(temp, &wipe_item_show));
-    //wipe_cache
-    temp = common_ui_init();
-    assert_if_fail(menuNode_add(p, temp) == RET_OK);
-    return_null_if_fail(menuUnit_set_name(temp, "<~wipe.cache.name>") == RET_OK);
-    return_null_if_fail(menuUnit_set_result(temp, WIPE_CACHE) == RET_OK);
-    return_null_if_fail(RET_OK == menuUnit_set_show(temp, &wipe_item_show));
-    //wipe dalvik-cache
-    temp = common_ui_init();
-    assert_if_fail(menuNode_add(p, temp) == RET_OK);
-    return_null_if_fail(menuUnit_set_name(temp, "<~wipe.dalvik-cache.name>") == RET_OK);
-    return_null_if_fail(menuUnit_set_result(temp, WIPE_DALVIK) == RET_OK);
-    return_null_if_fail(RET_OK == menuUnit_set_show(temp, &wipe_item_show));
-    //format system
-    temp = common_ui_init();
-    assert_if_fail(menuNode_add(p, temp) == RET_OK);
-    return_null_if_fail(menuUnit_set_name(temp, "<~format.system.name>") == RET_OK);
-    return_null_if_fail(menuUnit_set_result(temp, FORMAT_SYSTEM) == RET_OK);
-    return_null_if_fail(RET_OK == menuUnit_set_show(temp, &wipe_item_show));
-    //format data
-    temp = common_ui_init();
-    assert_if_fail(menuNode_add(p, temp) == RET_OK);
-    return_null_if_fail(menuUnit_set_name(temp, "<~format.data.name>") == RET_OK);
-    return_null_if_fail(menuUnit_set_result(temp, FORMAT_DATA) == RET_OK);
-    return_null_if_fail(RET_OK == menuUnit_set_show(temp, &wipe_item_show));
-    //format cache
-    temp = common_ui_init();
-    assert_if_fail(menuNode_add(p, temp) == RET_OK);
-    return_null_if_fail(menuUnit_set_name(temp, "<~format.cache.name>") == RET_OK);
-    return_null_if_fail(menuUnit_set_result(temp, FORMAT_CACHE) == RET_OK);
-    return_null_if_fail(RET_OK == menuUnit_set_show(temp, &wipe_item_show));
-    //format BOOT
-    temp = common_ui_init();
-    assert_if_fail(menuNode_add(p, temp) == RET_OK);
-    return_null_if_fail(menuUnit_set_name(temp, "<~format.boot.name>") == RET_OK);
-    return_null_if_fail(menuUnit_set_result(temp, FORMAT_BOOT) == RET_OK);
-    return_null_if_fail(RET_OK == menuUnit_set_show(temp, &wipe_item_show));
-    //format SDCARD
-    temp = common_ui_init();
-    assert_if_fail(menuNode_add(p, temp) == RET_OK);
-    return_null_if_fail(menuUnit_set_name(temp, "<~format.sdcard.name>") == RET_OK);
-    return_null_if_fail(menuUnit_set_result(temp, FORMAT_SDCARD) == RET_OK);
-    return_null_if_fail(RET_OK == menuUnit_set_show(temp, &wipe_item_show));
     //format ALL
     temp = common_ui_init();
     assert_if_fail(menuNode_add(p, temp) == RET_OK);

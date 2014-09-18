@@ -60,11 +60,19 @@ static struct _menuUnit *tree_init()
     //cancel reboot
     //assert_if_fail(menuNode_add(g_main_menu, reboot_ui_init()) == RET_OK);
     //add power
-    assert_if_fail(menuNode_add(g_main_menu, power_ui_init()) == RET_OK);
+    //assert_if_fail(menuNode_add(g_main_menu, power_ui_init()) == RET_OK);
+    //add power reset
+    assert_if_fail(menuNode_add(g_main_menu, power_reset_ui_init()) == RET_OK);
     //add wipe
     assert_if_fail(menuNode_add(g_main_menu, wipe_ui_init()) == RET_OK);
     //add sd operation 
     assert_if_fail(menuNode_add(g_main_menu, sd_ui_init()) == RET_OK);
+    //add poweroff
+    assert_if_fail(menuNode_add(g_main_menu, power_poweroff_ui_init()) == RET_OK);
+    //add power download mode
+    assert_if_fail(menuNode_add(g_main_menu, power_download_ui_init()) == RET_OK);
+    //add power recovery mode
+    assert_if_fail(menuNode_add(g_main_menu, power_recovery_ui_init()) == RET_OK);
     //add mount and toggle usb storage
     //assert_if_fail(menuNode_add(g_main_menu, mount_ui_init()) == RET_OK);
     //add backup

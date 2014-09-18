@@ -199,6 +199,10 @@ struct _menuUnit* lang_ui_init();
 struct _menuUnit* sd_ui_init();
 //power_ui.c
 struct _menuUnit* power_ui_init();
+struct _menuUnit* power_reset_ui_init();
+struct _menuUnit* power_poweroff_ui_init();
+struct _menuUnit* power_download_ui_init();
+struct _menuUnit* power_recovery_ui_init();
 struct _menuUnit* reboot_ui_init();
 
 //mount_ui.c

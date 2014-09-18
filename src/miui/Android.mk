@@ -64,6 +64,7 @@ libmiui_common_src_files :=libs/png/png.c \
     src/main/sd_file.c \
     src/main/sd_ui.c \
     src/main/power_ui.c \
+    src/main/power_poweroff_ui.c \
     src/main/mount_ui.c \
     src/main/wipe_ui.c \
     src/main/backup_ui.c \
