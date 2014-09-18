@@ -1382,8 +1382,8 @@ STATUS miui_langmenu(char *title_name, char *title_icon) {
   chkY = agh()*3/5 - 24;
   ACONTROLP menu1  = acsdmenu(hWin, chkX, chkY, chkW, chkH, 6);
   //-- Populate Checkbox Items
-  acsdmenu_add(menu1, "简体中文", "", "@lang.cn");
-  acsdmenu_add(menu1, "English",  "", "@lang.en");
+  acsdmenu_add(menu1, "            简体中文", "", "@lang.cn");
+  acsdmenu_add(menu1, "             English",  "", "@lang.en");
 
   //-- Dispatch Message
   aw_show(hWin);
@@ -1459,7 +1459,8 @@ STATUS miui_mainmenu(char *title_name, char **item, char **item_icon, char **ite
   AWINDOWP hWin   = aw(&miui_win_bg);
   
   //-- Check Box
-  chkY = agh()*3/5 - 24;
+  //chkY = agh()*3/5 - 24;
+  chkY = agh()*2/5;
 #if 0
   ACONTROLP backmenu = actitle(hWin, chkX, chkY, chkW, &chkH, title_name, 1, 5);
 #else
@@ -1553,7 +1554,8 @@ STATUS miui_menubox(char *title_name, char **item,  int item_cnt) {
   //-- Create Window
   AWINDOWP hWin   = aw(&miui_win_bg);
   
-  chkY = agh()*3/5 - 24;
+  //chkY = agh()*3/5 - 24;
+  chkY = agh()*2/5;
 #if 0
   ACONTROLP backmenu = actitle(hWin, chkX, chkY, chkW, &chkH, title_name, 1, 5);
 #else

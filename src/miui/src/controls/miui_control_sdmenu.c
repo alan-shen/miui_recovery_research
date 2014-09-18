@@ -140,7 +140,7 @@ void acsdmenu_redrawitem(ACONTROLP ctl, int index){
     if (imgH>imgS) imgH=imgS;
     int imgX = round((imgS-imgW)/2);
     int imgY = round((imgS-imgH)/2)+(agdp()*2);
-    apng_draw_ex(c,p->img,imgX+agdp(),p->y+imgY,0,0,imgW,imgH);
+    //apng_draw_ex(c,p->img,imgX+agdp(),p->y+imgY,0,0,imgW,imgH);
   }
   int txtH    = p->th+p->dh;
   int txtAddY = 0;
@@ -150,11 +150,11 @@ void acsdmenu_redrawitem(ACONTROLP ctl, int index){
   
   //-- Now Draw The Text
   if (isselectcolor){
-    ag_textf(c,d->clientTextW,d->clientTextX,p->y+p->ty+txtAddY,p->title,acfg()->selectbg_g,0);
-    ag_textf(c,d->clientTextW,d->clientTextX,p->y+p->dy+txtAddY,p->desc,acfg()->selectbg_g,0);
+    ag_textf(c,d->clientTextW,d->clientTextX,p->y+p->ty+txtAddY,p->title,acfg()->selectbg_g,1);
+    ag_textf(c,d->clientTextW,d->clientTextX,p->y+p->dy+txtAddY,p->desc,acfg()->selectbg_g,1);
   }
-  ag_text(c,d->clientTextW,d->clientTextX-1,(p->y+p->ty+txtAddY)-1,p->title,txtcolor,0);
-  ag_text(c,d->clientTextW,d->clientTextX-1,(p->y+p->dy+txtAddY)-1,p->desc,graycolor,0);
+  ag_text(c,d->clientTextW,d->clientTextX-1,(p->y+p->ty+txtAddY)-1,p->title,txtcolor,1);
+  ag_text(c,d->clientTextW,d->clientTextX-1,(p->y+p->dy+txtAddY)-1,p->desc,graycolor,1);
 
 }
 void acsdmenu_redraw(ACONTROLP ctl){

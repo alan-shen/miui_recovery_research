@@ -32,19 +32,19 @@ back.title_name=Back to parent menu
 sd.back.name=Back
 sd.back.desc=back to upper
 
-sd.name=install from sd
-sd.title_name=install from sd
-sd.desc=install from sd
+sd.name=install use update.zip
+sd.title_name=install use update.zip
+sd.desc=install use update.zip
 batt.name=BATTARY
 time.name=TIME
 
-sd.install.name=choose zip from sd
-sdext.install.name=choose zip from external sd
+sd.install.name=Choose update.zip From SD
+sdext.install.name=choose update.zip from external sd
 sd.update.name=apply /sdcard/update.zip
 udisk.update.name=apply /udisk/update.zip
 sd.log.save=Save Logs
 
-power.name=power
+power.name=Restart Phone
 power.title=power operation
 reboot.null= reboot
 reboot.null.title= reboot now
@@ -64,7 +64,7 @@ mount.sdcard.name=mount sdcard
 mount.sdcard.name=mount sd external
 mount.toggle.name=toggle usb storage
 
-wipe.name=wipe or format
+wipe.name=Wipe Data
 wipe.title=wipe data or format partation operation
 wipe.cache.name=wipe cache
 wipe.dalvik-cache.name=wipe dalvik-cache

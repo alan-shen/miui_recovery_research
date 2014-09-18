@@ -59,16 +59,16 @@ static struct _menuUnit *tree_init()
     //inital mainmenu 
     //cancel reboot
     //assert_if_fail(menuNode_add(g_main_menu, reboot_ui_init()) == RET_OK);
-    //add sd operation 
-    assert_if_fail(menuNode_add(g_main_menu, sd_ui_init()) == RET_OK);
+    //add power
+    assert_if_fail(menuNode_add(g_main_menu, power_ui_init()) == RET_OK);
     //add wipe
     assert_if_fail(menuNode_add(g_main_menu, wipe_ui_init()) == RET_OK);
+    //add sd operation 
+    assert_if_fail(menuNode_add(g_main_menu, sd_ui_init()) == RET_OK);
     //add mount and toggle usb storage
     //assert_if_fail(menuNode_add(g_main_menu, mount_ui_init()) == RET_OK);
     //add backup
     //assert_if_fail(menuNode_add(g_main_menu, backup_ui_init()) == RET_OK);
-    //add power
-    assert_if_fail(menuNode_add(g_main_menu, power_ui_init()) == RET_OK);
     //add tools operation
     //assert_if_fail(menuNode_add(g_main_menu, tool_ui_init()) == RET_OK);
     //add info

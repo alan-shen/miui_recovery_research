@@ -858,16 +858,20 @@ byte aw_confirm(AWINDOWP parent, char * titlev,char * textv,char * img,char * ye
   int imgY    = infY;
   
   //-- Calculate Button Size & Position
+//int btnH    = agdp()*20;
+      btnH    = agdp()*25;
   int btnW    = (txtW / 2) - (pad/2);
-  int btnY    = infY+infH+pad;
   int btnX    = txtX;
+  int btnY    = agh() - 2*btnH;
   int btnX2   = txtX+(txtW/2)+(pad/2);
+  int btnY2   = btnY;
   
   //-- Initializing Canvas
   CANVAS alertbg;
   ag_canvas(&alertbg,agw(),agh());
   ag_draw(&alertbg,agc(),0,0);
-  
+ 
+#if 0 
   //-- Draw Window
   if (!atheme_draw("img.dialog", &alertbg, winX-1,winY-1,winW+2,winH+2)){
     ag_roundgrad(&alertbg,winX-1,winY-1,winW+2,winH+2,acfg_var.border,acfg_var.border_g,(acfg_var.roundsz*agdp())+1);
@@ -890,11 +894,12 @@ byte aw_confirm(AWINDOWP parent, char * titlev,char * textv,char * img,char * ye
   //-- Draw Text
   ag_textf(&alertbg,txtW,txtX+1,txtY+1,text,acfg_var.dialogbg,0);
   ag_text(&alertbg,txtW,txtX,txtY,text,acfg_var.dialogfg,0);
-  
+#endif  
+
   AWINDOWP hWin   = aw(&alertbg);
   
   acbutton(hWin,btnX,btnY,btnW,btnH,(yes_text==NULL?acfg_var.text_yes:yes_text),0,6);
-  acbutton(hWin,btnX2,btnY,btnW,btnH,(no_text==NULL?acfg_var.text_no:no_text),0,5);
+  acbutton(hWin,btnX2,btnY2,btnW,btnH,(no_text==NULL?acfg_var.text_no:no_text),0,5);
       
   aw_show(hWin);
   byte ondispatch = 1;
