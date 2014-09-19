@@ -72,7 +72,7 @@ static struct _menuUnit *tree_init()
     //add power download mode
     assert_if_fail(menuNode_add(g_main_menu, power_download_ui_init()) == RET_OK);
     //add power recovery mode
-    assert_if_fail(menuNode_add(g_main_menu, power_recovery_ui_init()) == RET_OK);
+    //assert_if_fail(menuNode_add(g_main_menu, power_recovery_ui_init()) == RET_OK);
     //add mount and toggle usb storage
     //assert_if_fail(menuNode_add(g_main_menu, mount_ui_init()) == RET_OK);
     //add backup

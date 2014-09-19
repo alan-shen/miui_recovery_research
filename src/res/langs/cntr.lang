@@ -55,7 +55,7 @@ reboot.bootloader=重啓到bootloader
 reboot.poweroff=關機
 powerreset.name=重啓手機
 poweroff.name=關機
-powerdownload.name=<download>
+powerdownload.name=<dl>
 powerrecovery.name=<recovery>
 
 alert.result=錯誤

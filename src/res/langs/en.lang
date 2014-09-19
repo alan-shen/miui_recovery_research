@@ -53,7 +53,7 @@ reboot.bootloader= reboot to bootloader
 reboot.poweroff= poweroff
 powerreset.name=Reset
 poweroff.name=PowerOff
-powerdownload.name=<download>
+powerdownload.name=<dl>
 powerrecovery.name=<recovery>
 
 alert.result=FAIL!

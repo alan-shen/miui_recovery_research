@@ -55,7 +55,7 @@ reboot.bootloader=重启到bootloader
 reboot.poweroff=关机
 powerreset.name=重启手机
 poweroff.name=关机
-powerdownload.name=<download>
+powerdownload.name=<dl>
 powerrecovery.name=<recovery>
 
 alert.result=错误
