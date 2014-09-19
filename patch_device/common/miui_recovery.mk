@@ -42,6 +42,7 @@ $(MIUI_PRODUCT): MIUI_DEVICE_CONFIG := $(MIUI_DEVICE_CONFIG)
 $(MIUI_PRODUCT): $(MKBOOTFS) $(MINIGZIP) \
 		$(MKBOOTIMG) \
 		recoveryimage
+	@clear
 	@echo -e ${CL_YLW}"\nBuild for $(MIUI_PRODUCT)"${CL_RST}
 	rm -rf $(miui_recovery_product)
 	mkdir -p $(miui_recovery_out)
@@ -67,6 +68,7 @@ ifeq (${MIUI_PRODUCT}, i9300)
 		${CL_BLU}"${MIUI_PRODUCT}"${CL_RST} \
 		${CL_RED}"] ==============="${CL_RST}
 	@cp -rfv ${miui_recovery_target} recovery.img
+	@ls -lh recovery.img
 	@tar cvf i9300_miui_recovery.tar recovery.img
 	@rm -rfv                         recovery.img
 	@ifconfig | grep --color "inet addr"
