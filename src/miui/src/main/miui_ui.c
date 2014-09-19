@@ -1382,6 +1382,7 @@ STATUS miui_langmenu(char *title_name, char *title_icon) {
   chkY = agh()*3/5 - 24;
   ACONTROLP menu1  = acsdmenu(hWin, chkX, chkY, chkW, chkH, 6);
   //-- Populate Checkbox Items
+//acsdmenu_add(menu1, "....|....|..简体中文", "", "@lang.cn");
   acsdmenu_add(menu1, "            简体中文", "", "@lang.cn");
   acsdmenu_add(menu1, "            繁體中文", "", "@lang.cn");
   acsdmenu_add(menu1, "             English", "", "@lang.en");

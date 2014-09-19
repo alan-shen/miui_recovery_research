@@ -13,6 +13,7 @@ static STATUS lang_menu_show(menuUnit *p)
             "English", "Welcome to recovery", "@lang", 2);
     */
     int ret = miui_langmenu(p->title_name, p->icon);
+	miui_error("[letv] ret = %d\n", ret);
 
     if (0 == ret)
     {
@@ -24,17 +25,19 @@ static STATUS lang_menu_show(menuUnit *p)
     else if (1 == ret)
     {
         miui_loadlang("langs/cntr.lang");
-        miui_font( "0", "ttf/TraditionalChinese.ttf;ttf/DroidSans.ttf", "12" );
-        miui_font( "1", "ttf/TraditionalChinese.ttf;ttf/DroidSans.ttf", "15" );
+        miui_font( "0", "ttf/TraditionalChinese.ttf;ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf", "12" );
+        miui_font( "1", "ttf/TraditionalChinese.ttf;ttf/DroidSans.ttf;ttf/DroidSansFallback.ttf", "15" );
         p->result = 1;
     }
+#if 1
     else if (2 == ret)
     {
         miui_loadlang("langs/en.lang");
         miui_font( "0", "ttf/DroidSans.ttf", "12" );
         miui_font( "1", "ttf/DroidSans.ttf", "18" );
-        p->result = 2;
+        p->result = 1;
     }
+#endif
     else {
         miui_error("should not be here");
         p->result = 0;
